@@ -38,7 +38,7 @@ public final class PropertiesUtils {
         final Properties properties = new Properties();
         loadPropertiesFrom(ClassLoader.getSystemClassLoader(), properties);
         loadPropertiesFrom(Thread.currentThread().getContextClassLoader(), properties);
-        properties.putAll(System.getProperties());
+        properties.putAll((Properties)System.getProperties().clone());
         return properties;
     }
 
